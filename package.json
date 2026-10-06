@@ -1,0 +1,39 @@
+{
+  "name": "datapulse",
+  "version": "0.1.0",
+  "description": "DataPulse: AI BI studio - LLM agent answers questions about your SQLite/PostgreSQL/MySQL/CSV data and generates dashboards",
+  "type": "module",
+  "scripts": {
+    "seed": "tsx src/cli/seed.ts",
+    "ask": "tsx src/cli/ask.ts",
+    "crm-ask": "tsx src/cli/crmAsk.ts",
+    "crm-seed": "tsx src/cli/crmSeed.ts",
+    "mysql-ask": "tsx src/cli/mysqlAsk.ts",
+    "mysql-seed": "tsx src/cli/mysqlSeed.ts",
+    "csv-import": "tsx src/cli/importCsv.ts",
+    "starters": "tsx src/cli/starters.ts",
+    "dashboard": "tsx src/cli/dashboard.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tests/tsconfig.json && npm --prefix desktop run typecheck",
+    "desktop": "node scripts/kill-dev.mjs && cd desktop && npm run typecheck && npm run build && ./node_modules/.bin/electron ."
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "dotenv": "^17.2.3",
+    "mysql2": "^3.23.3",
+    "node-sql-parser": "^5.4.0",
+    "openai": "^6.16.3",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^26.0.0",
+    "@types/pg": "^8.21.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
